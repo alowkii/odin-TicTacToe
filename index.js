@@ -1,7 +1,6 @@
 var count = 0;
+var cardNum = 0;
 var winner = "";
-var playerCard = "";
-var computerCard = "";
 
 function computerMove() {
   var emptyCells = [];
@@ -22,7 +21,8 @@ function computerMove() {
 }
 
 function cellClick(num) {
-  if(getPlayerCard() === null) {
+  var playerCard = getPlayerCard().innerHTML.trim();
+  if(playerCard === null) {
     alert('Player must select a mark');
     return;
   }
@@ -50,17 +50,19 @@ function putMarkAt(cellNo) {
 }
 
 function setPlayerCard(num) {
-  playerCard = document.querySelector(`.btn${num}`);
+  cardNum = num;
+  var playerCard = document.querySelector(`.btn${num}`);
   playerCard.setAttribute('id', 'playerCard');
   playerCard.style.backgroundColor = '#555';
   if(num === 0) {
-    computerCard = document.querySelector('.btn1');
+    var computerCard = document.querySelector('.btn1');
     computerCard.setAttribute('id', 'computerCard');
     computerCard.style.backgroundColor = '#333';
   } else {
-    computerCard = document.querySelector('.btn0');
+    var computerCard = document.querySelector('.btn0');
     computerCard.setAttribute('id', 'computerCard');
     computerCard.style.backgroundColor = '#333';
+    computerMove();
   }
 }
 
