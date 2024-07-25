@@ -1,0 +1,172 @@
+:root{
+    --bg-color: black;
+    --bg2-color: #333;
+    --bg3-color: #555;
+    --text-color: white;
+    --text2-color: #ccc;
+    --board-color: #000000;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins Thin",Arial, sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    height: 4rem;
+    width: 100%;
+    background-color: var(--bg2-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+}
+
+main > .game-board{
+    width: 30rem;
+    height: 30rem;
+    background-color: var(--board-color);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+    grid-area: "cell cell cell"
+                "cell cell cell"
+                "cell cell cell";
+    z-index: 10;
+}
+
+main > .game-board > .cell{
+    background-color: var(--bg2-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 6rem;
+    color: var(--text2-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+main > .game-board > .cell:hover{
+    background-color: var(--bg3-color);
+}
+
+main > .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    width: 15rem;
+    height: 10rem;
+    position: absolute;
+    left: 10rem;
+}
+
+main > .menu > button{
+    background-color: var(--bg2-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    letter-spacing: 4px;
+}
+
+main > .menu > button:hover{
+    background-color: var(--bg3-color);
+}
+
+main > .player-mark{
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    width: 21rem;
+    height: 12rem;
+    position: absolute;
+    right: 5rem;
+    flex-wrap: wrap;
+}
+
+main > .player-mark > h1{
+    display: inline-flex;
+    height: 1rem;
+}
+
+main > .player-mark > button{
+    background-color: var(--bg2-color);
+    color: var(--text-color);
+    border: none;
+    width: 10rem;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    font-size: 5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > .player-mark > button:hover{
+    background-color: var(--bg3-color);
+}
+
+main > .score-card{
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    position: absolute;
+    top: 7rem;
+    z-index: 0;
+}
+
+main > .score-card > .players{
+    width: 10rem;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: var(--bg2-color);
+}
+
+main > .score-card > .players > h1{
+    color: rgb(180, 150, 0);
+}
+
+footer{
+    flex: 1;
+    display: flex;
+    align-items: end;
+    margin-top: 1rem;
+    height: 3rem;
+    background-color: var(--bg2-color);
+}
+
+footer :is( p, a){
+    margin: 0.5rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>TicTacToe</h1>
+    </header>
+    <main>
+        <div class="menu display">
+            <button class="startBtn" onclick="startGame()">START</button>
+            <button class="resetBtn" onclick="resetGame()">RESET</button>
+        </div>
+
+        <div class="player-mark">
+            <h2>Choose your mark</h2>
+            <button class="btn0" onclick="setPlayerCard(0)">
+                <img src="cross.png" alt="" width="100px">
+            </button>
+            <button class="btn1" onclick="setPlayerCard(1)">
+                <img src="circle.png" alt="" width="110px">
+            </button>
+        </div>
+
+        <div class="score-card">
+            <div class="player players">
+                <h2>Player</h2>
+                <h1 class="score" id="playerScore">0</h1>
+            </div>
+            <div class="computer players">
+                <h2>Computer</h2>
+                <h1 class="score" id="compScore">0</h1>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="cell" id="c0" onclick="cellClick(0)"></div>
+            <div class="cell" id="c1" onclick="cellClick(1)"></div>
+            <div class="cell" id="c2" onclick="cellClick(2)"></div>
+            <div class="cell" id="c3" onclick="cellClick(3)"></div>
+            <div class="cell" id="c4" onclick="cellClick(4)"></div>
+            <div class="cell" id="c5" onclick="cellClick(5)"></div>
+            <div class="cell" id="c6" onclick="cellClick(6)"></div>
+            <div class="cell" id="c7" onclick="cellClick(7)"></div>
+            <div class="cell" id="c8" onclick="cellClick(8)"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 <a href="https://github.com/alowkii" target="_blank">@alowkii</a></p>
+    </footer>
+</body>
+</html>
