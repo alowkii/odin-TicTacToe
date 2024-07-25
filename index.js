@@ -2,7 +2,7 @@ var count = 0;
 var winner = "";
 
 function cellClick(num) {
-  console.log(num);
+  
 }
 
 function putMarkAt(cellNo) {
@@ -60,20 +60,28 @@ function checkWinner() {
 }
 
 function setPlayerCard(num) {
-  var playerCard = document.querySelector('btn{num}');
+  var playerCard = document.querySelector(`.btn${num}`);
   playerCard.setAttribute('id', 'playerCard');
+  playerCard.style.backgroundColor = '#555';
   if(num === 0) {
-    computerCard = document.querySelector('btn0');
-    computerCard.style.opacity = 0.5;
+    computerCard = document.querySelector('.btn1');
+    computerCard.setAttribute('id', 'computerCard');
+    computerCard.style.backgroundColor = '#333';
   } else {
-    computerCard = document.querySelector('btn1');
-    computerCard.style.opacity = 0.5;
+    computerCard = document.querySelector('.btn0');
+    computerCard.setAttribute('id', 'computerCard');
+    computerCard.style.backgroundColor = '#333';
   }
 }
 
 function getPlayerCard(){
   var playerCard = document.getElementById('playerCard');
   return playerCard;
+}
+
+function getComputerCard(){
+  var computerCard = document.getElementById('computerCard');
+  return computerCard;
 }
 
 function announceWinner(winner) {
@@ -84,6 +92,8 @@ function announceWinner(winner) {
     }
     alert(`Player ${winner} wins!`);
   }
+  setScore();
+  startGame();
 }
 
 function setScore() {
@@ -96,8 +106,7 @@ function setScore() {
   }
 }
 
-function startGame() {
-  setScore();
+function resetBoard() {
   count = 0;
   for(var i = 0; i <= 9; i++) {
     var cellClass = `c${i}`;
@@ -106,11 +115,19 @@ function startGame() {
   }
 }
 
-function resetGame() {
-  count = 0;
-  for(var i = 0; i <= 9; i++) {
-    var cellClass = `c${i}`;
-    cell = document.getElementById(cellClass);
-    cell.innerHTML = '';
+function startGame() {
+  if(getPlayerCard() === null) {
+    alert('Please select a card');
+    return;
   }
+  setScore();
+  resetBoard();
+}
+
+function resetGame() {
+  var playerScore = document.getElementById('playerScore');
+  var compScore = document.getElementById('compScore');
+  playerScore.innerHTML = 0;
+  compScore.innerHTML = 0;
+  resetBoard();
 }
